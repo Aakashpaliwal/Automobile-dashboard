@@ -29,6 +29,8 @@ import { Manufacturer } from './components/Manufacturer/Manufacturer';
 import { ViewManufacturer } from './components/Manufacturer/ViewManufacturer';
 import { AddCompany } from './components/Company/AddCompany';
 import { ViewCompany } from './components/Company/ViewCompany';
+import { AddRequirements } from './components/Requirements/AddRequirements';
+import { ViewRequirements } from './components/Requirements/ViewRequirements';
 
 
 class App extends Component {
@@ -89,6 +91,8 @@ class App extends Component {
         <Route path = "/ViewManufacturer" exact = {true} component = {ViewManufacturer}/>
         <Route path = "/AddCompany" exact = {true} component = {AddCompany}/>
         <Route path = "/ViewCompany" exact = {true} component = {ViewCompany}/>
+        <Route path = "/AddRequirements" exact = {true} component = {AddRequirements}/>
+        <Route path = "/ViewRequirements" exact = {true} component = {ViewRequirements}/>
 
         {/* </div>
         : (

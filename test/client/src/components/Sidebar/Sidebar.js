@@ -96,6 +96,13 @@ class Sidebar extends Component {
                             </ul>
                         </li>
                         <li>
+                         <a className="has-arrow waves-effect waves-dark" href="#submenu4" data-toggle="collapse" data-target="#submenu4"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Requirements</span></a>
+                            <ul aria-expanded="false" className="collapse" id="submenu4">
+                            <Link to ="/AddRequirements"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Requirements</li></Link>
+                            <Link to ="/ViewRequirements"><li><i className="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View Requirements</li></Link>   
+                            </ul>
+                        </li>
+                        <li>
                          <a className="has-arrow waves-effect waves-dark" href="#company" data-toggle="collapse" data-target="#company"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Company</span></a>
                             <ul aria-expanded="false" className="collapse" id="company">
                             <Link to ="/AddCompany"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Company</li></Link>
