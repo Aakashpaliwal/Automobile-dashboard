@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import './Zone.css';
-class Zone extends Component {
+import React, { Component } from 'react'
+import './Equipment.css'
+import {Link} from 'react-router-dom'
+export class AddEquipment extends Component {
     constructor(props)
     {
         super(props)
         this.state = {
             token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaWQiOjEsImlhdCI6MTU0MDI3MzI4N30.xG68rUe4dadGAprGwvhjb_0BLSs81STXfy2BO1t09Yk",
-           name: "",
-           pin : ""
+           dummy : ""
          
            };
 
     }
     componentWillUpdate(nextProps, nextState) {
-		localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaWQiOjEsImlhdCI6MTU0MDI3MzI4N30.xG68rUe4dadGAprGwvhjb_0BLSs81STXfy2BO1t09Yk')
-	}
+        localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaWQiOjEsImlhdCI6MTU0MDI3MzI4N30.xG68rUe4dadGAprGwvhjb_0BLSs81STXfy2BO1t09Yk')
+      }
       change  = e => {
         this.setState ({
           [e.target.name]: e.target.value
@@ -23,27 +22,24 @@ class Zone extends Component {
       };
       getWebsite = () =>
       {
-          fetch('/').then(console.log(this.state));
+          fetch('/');
       }
       onSubmit = e =>
       {
           e.preventDefault();
           console.log(this.state);
-
           this.setState ({
-           name : "",
-           pin : ""
+           dummy : ""
           })
-          fetch('zone/add',{
-
+          fetch('equipment/add',{
             method : "POST",
             headers : {
-                'Authorization': 'Bearer ' + this.state.token,
-                "Content-Type" : "application/json"
+             'Authorization': 'Bearer ' + this.state.token,
+            "Content-Type" : "application/json"
             },
             body: JSON.stringify(this.state)
           })
-              //   .then(console.log(this.state));
+            //   .then(console.log(this.state));
         .then(function(response){ 
             return response.json();})
         .then(function(json){
@@ -75,7 +71,7 @@ class Zone extends Component {
                        <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page">Add Zone</li>
+                                <li className="breadcrumb-item active" aria-current="page">Add Admin</li>
                             </ol>
                             </nav>
                    </div>
@@ -92,19 +88,16 @@ class Zone extends Component {
     <div className = "below-custom-form">
         <div className = "row">
            <div className = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   <h3>Add Zone</h3>
+                   <h3>Add Admin</h3>
            </div>
         </div>
-        <form className="custom-content-form" method = "POST">
+        <form className="custom-content-form" autoComplete = 'no'>
   <div class="form-row">
     <div class="form-group col-md-6">
-    <label for="inputCategory">Enter Name*(unique) </label>
-     <input type="text" className="form-control" placeholder="Zone must be alphanumeric" name="name" value = {this.state.name} onChange = {e => this.change(e)} />
+    <label for="inputCategory">Enter Dummy</label>
+     <input type="text" className="form-control" placeholder="John Doe" name="dummy" value = {this.state.dummy} onChange = {e => this.change(e)} />
     </div>
-    <div class="form-group col-md-6">
-    <label for="inputSubcategory">Enter Pin*</label><br />              
-     <input type="number" className = "form-control" placeholder="min 6 digits" name="pin" value={this.state.pin} onChange={e => this.change(e)} />
-    </div>
+   
   </div>
  
   <button class="btn btn-primary" onClick = {e => this.onSubmit(e)}>Submit</button>
@@ -125,5 +118,4 @@ class Zone extends Component {
   }
 }
 
-
-export default Zone;
+export default AddEquipment

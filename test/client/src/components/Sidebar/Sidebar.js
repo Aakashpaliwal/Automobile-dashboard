@@ -75,10 +75,31 @@ class Sidebar extends Component {
                             </ul>
                         </li>
                         <li>
+                         <a className="has-arrow waves-effect waves-dark" href="#equip" data-toggle="collapse" data-target="#equip"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Equipment</span></a>
+                            <ul aria-expanded="false" className="collapse" id="equip">
+                            <Link to ="/AddEquipment"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Equipment</li></Link>
+                            <Link to ="/ViewEquipment"><li><i className="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View Equipment</li></Link>   
+                            </ul>
+                        </li>
+                        <li>
+                         <a className="has-arrow waves-effect waves-dark" href="#manufact" data-toggle="collapse" data-target="#manufact"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Manufacturer</span></a>
+                            <ul aria-expanded="false" className="collapse" id="manufact">
+                            <Link to ="/Manufacturer"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Manufacturer</li></Link>
+                            <Link to ="/ViewManufacturer"><li><i className="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View Manufacturer</li></Link>   
+                            </ul>
+                        </li>
+                        <li>
                          <a className="has-arrow waves-effect waves-dark" href="#submenu4" data-toggle="collapse" data-target="#submenu4"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Category</span></a>
                             <ul aria-expanded="false" className="collapse" id="submenu4">
                             <Link to ="/AddCategory"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Category</li></Link>
                             <Link to ="/ViewCategory"><li><i className="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View Category</li></Link>   
+                            </ul>
+                        </li>
+                        <li>
+                         <a className="has-arrow waves-effect waves-dark" href="#company" data-toggle="collapse" data-target="#company"><i className="fa fa-cubes" aria-hidden="true"></i><span className="hide-menu">Company</span></a>
+                            <ul aria-expanded="false" className="collapse" id="company">
+                            <Link to ="/AddCompany"><li><i className="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Company</li></Link>
+                            <Link to ="/ViewCompany"><li><i className="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View Company</li></Link>   
                             </ul>
                         </li>
                         <li>

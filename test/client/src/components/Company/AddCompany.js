@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import './Schedule.css';
-
-class Schedule extends Component {
+import React, { Component } from 'react'
+import './Company.css'
+import {Link} from 'react-router-dom'
+export class AddCompany extends Component {
     constructor(props)
     {
         super(props)
         this.state = {
-          dummy : "",
+            token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaWQiOjEsImlhdCI6MTU0MDI3MzI4N30.xG68rUe4dadGAprGwvhjb_0BLSs81STXfy2BO1t09Yk",
+           dummy : ""
          
            };
 
     }
-    
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaWQiOjEsImlhdCI6MTU0MDI3MzI4N30.xG68rUe4dadGAprGwvhjb_0BLSs81STXfy2BO1t09Yk')
+      }
       change  = e => {
         this.setState ({
           [e.target.name]: e.target.value
@@ -20,24 +22,24 @@ class Schedule extends Component {
       };
       getWebsite = () =>
       {
-          fetch('/').then(console.log(this.state));
+          fetch('/');
       }
       onSubmit = e =>
       {
           e.preventDefault();
           console.log(this.state);
           this.setState ({
-          dummy : ""
+           dummy : ""
           })
-          fetch('schedule/add',{
-
+          fetch('equipment/add',{
             method : "POST",
             headers : {
-                "Content-Type" : "application/json"
+             'Authorization': 'Bearer ' + this.state.token,
+            "Content-Type" : "application/json"
             },
             body: JSON.stringify(this.state)
           })
-          //   .then(console.log(this.state));
+            //   .then(console.log(this.state));
         .then(function(response){ 
             return response.json();})
         .then(function(json){
@@ -50,6 +52,12 @@ class Schedule extends Component {
       }
     })
       };
+      
+    //   fileSelectedHandler = e => {     
+    //       e.preventDefault();
+    //     let files = e.target.files;
+    //     console.log('data',files[0]);
+    //   }
   render() {
     return (
         <div className="skin-blue fixed-layout">
@@ -63,7 +71,7 @@ class Schedule extends Component {
                        <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page">Add Schedule</li>
+                                <li className="breadcrumb-item active" aria-current="page">Add Admin</li>
                             </ol>
                             </nav>
                    </div>
@@ -80,15 +88,16 @@ class Schedule extends Component {
     <div className = "below-custom-form">
         <div className = "row">
            <div className = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   <h3>Add Schedule</h3>
+                   <h3>Add Admin</h3>
            </div>
         </div>
-        <form className="custom-content-form" method="POST">
+        <form className="custom-content-form" autoComplete = 'no'>
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputCategory">Enter Dummy</label>
      <input type="text" className="form-control" placeholder="John Doe" name="dummy" value = {this.state.dummy} onChange = {e => this.change(e)} />
     </div>
+   
   </div>
  
   <button class="btn btn-primary" onClick = {e => this.onSubmit(e)}>Submit</button>
@@ -108,6 +117,4 @@ class Schedule extends Component {
     )
   }
 }
-
-
-export default Schedule;
+export default AddCompany
