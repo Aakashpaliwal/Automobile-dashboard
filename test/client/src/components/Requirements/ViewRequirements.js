@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Requirement.css'
+import './Requirements.css'
 import {Link} from 'react-router-dom'
 export class ViewRequirements extends Component {
     constructor (props) {
