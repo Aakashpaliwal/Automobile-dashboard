@@ -9,3 +9,9 @@ footer {
     padding: 20px;
  }
   
+ .page-wrapper {
+    min-height: calc(100vh - 60px);
+  }
+  /* .footer {
+    height: 50px;
+  } */
